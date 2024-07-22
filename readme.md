@@ -38,7 +38,7 @@ $:./load.bash
 ```
 Run from a browser database UI and check the show content:
 ```
-http://127.0.0.1:8086
+http://127.0.0.1:<EXTERNAL_EXPRESS_PORT>
 ```
 ```bash
 $:./clear.bash
@@ -47,7 +47,7 @@ $:./clear.bash
 ### Run a show
 #### 1. Open the EXTERNAL_PORT to the Internet
 ```bash
-$:ngrok http --domain=[your-static-domain] EXTERNAL_PORT
+$:ngrok http --domain=[your-static-domain] <EXTERNAL_PORT>
 
 ``` 
 #### 2. Run the data-feed-service and the database
@@ -57,11 +57,11 @@ $:./run.bash
 #### 3. Run the PROMPTER page from a browser on the prompter machine (phone)
 copy the external uri after the 1 
 ```
-https://<external uri>/prompter
+https://<external uri>/app/prompter
 ```
 #### 4. Now users can run the VIEWR page from a browser on each viewers machine (phone)
 ```
-https://<external uri>/viewer
+https://<external uri>/app/viewer
 ```
 
 <b>THE SHOW IS GOING ON!</b>
