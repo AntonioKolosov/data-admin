@@ -49,19 +49,30 @@ $:./clear.bash
 ```bash
 $:ngrok http --domain=[your-static-domain] <EXTERNAL_PORT>
 
+Session Status    online                     
+Forwarding        https://....ngrok-free.app -> http://localhost:8003  
 ``` 
-#### 2. Run the data-feed-service and the database
+#### 2. Copy the external https url from the ngrok output (Forwardig) 
+
+
+#### 3. Run the data-feed-service  and the database with the external https url
 ```bash
-$:./run.bash
+$:./run.bash <external https url>
 ```
-#### 3. Run the PROMPTER page from a browser on the prompter machine (phone)
-copy the external uri after the 1 
+#### 4. Run the PROMPTER page from a browser on the prompter machine (phone)
 ```
-https://<external uri>/app/prompter
+<external https url>/app/prompter
 ```
-#### 4. Now users can run the VIEWR page from a browser on each viewers machine (phone)
+#### 5. Now users can run the VIEWR page from a browser on each viewers machine (phone)
 ```
 https://<external uri>/app/viewer
 ```
 
 <b>THE SHOW IS GOING ON!</b>
+
+#### 6. Stop the data-feed-service and the database
+```bash
+$:./stop.bash
+```
+
+

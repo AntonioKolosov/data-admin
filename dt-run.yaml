@@ -28,14 +28,15 @@ services:
     ports:
       - ${EXTERNAL_EXPRESS_PORT}:8081
   data-feed-service:
-    # image: ghcr.io/antoniokolosov/data-feed-service-${IMAGE_ARCH}:${IMAGE_VER}
-    image: "data-feed-service"
+    image: antonioklsv/data-feed-service-${IMAGE_ARCH}:${IMAGE_VER}
     container_name: df-srv-${COMPOSE_PROJECT_NAME}
     depends_on:
       - mongo-dtadm
     restart: unless-stopped
     env_file:
       - ./.env
+    environment:
+      - EXTERNAL_HTTPS    
     ports:
       # HOST-PORT:CONTAINER-PORT
       - ${EXTERNAL_PORT}:${PORT}
