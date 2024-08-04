@@ -1,3 +1,4 @@
 .env
+original/*
 data/*
 content/*.json

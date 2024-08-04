@@ -24,15 +24,16 @@
 └── stop.bash   
 
 ### Prepare original texts to use
-#### 1. Convert from subtitle format to the content format
+#### 1. Convert from subtitle format to the content format - from subtitles utility
 ```bash
-$:
+$:./convert.bash dolly ru_dolly.txt ru
 ```
-#### 2. Copy from data folder to content folder
+#### 2. Copy from the data folder to content folder
 ```bash
-$:cp
+$:cp ./data/dolly/ru_data.json ./content/
 ```
-#### 3. Test content (load to the database)
+
+#### 3. Test content (load to the database) - OPTIONAL
 ```bash
 $:./load.bash
 ```
@@ -45,7 +46,7 @@ $:./clear.bash
 ```
 
 ### Run a show
-#### 1. Open the EXTERNAL_PORT to the Internet
+#### 1. Open the EXTERNAL_PORT to the Internet (from separate terminal)
 ```bash
 $:ngrok http --domain=[your-static-domain] <EXTERNAL_PORT>
 
@@ -75,4 +76,7 @@ https://<external uri>/app/viewer
 $:./stop.bash
 ```
 
+#### 7. Close the EXTERNAL_PORT (from terminal where ngrok is running)
+```bash
+$:CTRL+C
 
