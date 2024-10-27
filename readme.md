@@ -24,16 +24,16 @@
 └── stop.bash   
 
 ### Prepare original texts to use
-#### 1. Convert from subtitle format to the content format - from subtitles utility
+#### 1. Convert from the subtitle format to the content format
 ```bash
-$:./convert.bash dolly ru_dolly.txt ru
+$:./convert.bash show file lang [ru | he | en]
 ```
-#### 2. Copy from the data folder to content folder
+#### 2. Copy from the data folder to the content folder
 ```bash
-$:cp ./data/dolly/ru_data.json ./content/
+$:cp ./data/show/<lang>_data.json ./content/
 ```
 
-#### 3. Test content (load to the database) - OPTIONAL
+#### 3. Test the content (load to the database) - OPTIONAL
 ```bash
 $:./load.bash
 ```
@@ -46,7 +46,7 @@ $:./clear.bash
 ```
 
 ### Run a show
-#### 1. Open the EXTERNAL_PORT to the Internet (from separate terminal)
+#### 1. Open the EXTERNAL_PORT to the Internet (from a separate terminal)
 ```bash
 $:ngrok http <EXTERNAL_PORT>
 
@@ -64,14 +64,14 @@ $:./run.bash <external https url>
 ```
 <external https url>/app/prompter
 ```
-#### 5. Now users can run the VIEWR page from a browser on each viewers machine (phone)
+#### 5. Now users can run the VIEWER page from a browser on each of viewer's machine (phone)
 ```
 https://<external uri>/app/viewer
 ```
 
 <b>THE SHOW IS GOING ON!</b>
 
-#### 6. Stop the data-feed-service and the database
+#### 6. Stop the data-feed-service and clean the database
 ```bash
 $:./stop.bash
 ```

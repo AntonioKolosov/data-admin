@@ -1,24 +1,24 @@
 #!/usr/bin/bash
 
-# will be passed via cmd (env)
-ARCH=aarch64
-VER=1.0.0
-
 echo "Today is " `date`
 echo "Start the data conversion" 
 
-echo $1
-echo $2
-echo $3
+# Get environment
+source .env_conv
+
+# Get parameters
+SHOW=$1
+FILE=$2
+LANG=$3
 
 # docker events&
 
 docker run -it \
             --rm \
-            -v ${PWD}/original:/home/app/in \
-            -v ${PWD}/data:/home/app/out \
+            -v ${HOSTINPUT}:${DOCKERINPUT} \
+            -v ${HOSTOUTPUT}:${DOCKEROUTPUT} \
             --name dt-converter \
-            antonioklsv/subtitles-utility-${ARCH}:${VER} $1 $2 $3
+            antonioklsv/subtitles-utility-${ARCH}:${VER} ${SHOW} ${FILE} ${LANG}
 
 # for debug purpose
 # docker container inspect \
