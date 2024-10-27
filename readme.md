@@ -48,7 +48,7 @@ $:./clear.bash
 ### Run a show
 #### 1. Open the EXTERNAL_PORT to the Internet (from separate terminal)
 ```bash
-$:ngrok http --domain=[your-static-domain] <EXTERNAL_PORT>
+$:ngrok http <EXTERNAL_PORT>
 
 Session Status    online                     
 Forwarding        https://....ngrok-free.app -> http://localhost:8003  

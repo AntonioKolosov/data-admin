@@ -1,0 +1,13 @@
+name: Zip repository and put on ???
+on: [workflow_dispatch]
+
+jobs:
+  zip-n-push:
+    name: Zip and Push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zip Folder
+        run: |
+          cd ../ # I added this
+          rm -rf <repository_name>.zip
+          zip -r <repository_name>.zip <repository_name> -x ".git/*" ".github/*"
